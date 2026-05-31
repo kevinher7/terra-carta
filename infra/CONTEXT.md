@@ -32,7 +32,7 @@ Internet
     |---> EC2 (FastAPI in Docker)  [dashboard]
     |        |-- SQLite on EBS volume
     |        |-- Cron: backup SQLite to S3
-    |        |-- Pulls Docker image from ECR (cv-dashboard-backend)
+    |        |-- Pulls Docker image from ECR (terra-vigil-backend)
     |        +-- Generates presigned URLs for image S3 bucket
     |
     |---> EC2 (MLflow)  [dedicated — §7]
@@ -45,7 +45,7 @@ Internet
     +---> S3 (images, COCO dataset files, MLflow artifacts, SQLite backups)
 
 ECR (Docker image registries)
-    |-- cv-dashboard-backend:latest
+    |-- terra-vigil-backend:latest
     +-- cv-model-serving:latest        [built by mlflow models build-docker]
 
 GitHub Actions (CI/CD)
@@ -70,7 +70,7 @@ GitHub Actions (CI/CD)
 | S3 — frontend | Static React build | ~$0.10/mo |
 | S3 — backups | Dashboard + MLflow SQLite backups | ~$0.01/mo |
 | CloudFront | CDN for frontend | ~$0–1/mo |
-| ECR (×2) | `cv-dashboard-backend` + `cv-model-serving` | ~$0.10–0.20/mo |
+| ECR (×2) | `terra-vigil-backend` + `cv-model-serving` | ~$0.10–0.20/mo |
 | Route 53 (optional) | DNS | $0.50/mo per zone |
 | VPC + Security Groups | Network isolation | Free |
 | IAM | Roles for EC2 (×2), GitHub Actions | Free |
@@ -148,7 +148,7 @@ infra-repo/
 |   |-- networking/     # VPC, subnets, security groups
 |   |-- compute/        # dashboard EC2 + MLflow EC2, EBS, IAM roles, user data
 |   |-- storage/        # S3 buckets/prefixes, CloudFront distribution
-|   |-- ecr/            # Container registries (cv-dashboard-backend + cv-model-serving)
+|   |-- ecr/            # Container registries (terra-vigil-backend + cv-model-serving)
 |   |-- gpu-training/   # transient GPU spot (deferred — §9)
 |   +-- dns/            # Route 53 (optional)
 +-- environments/
@@ -170,7 +170,7 @@ infra-repo/
 
 ### On merge to main — dashboard deploy:
 1. Build Docker image with commit SHA tag
-2. Push to ECR `cv-dashboard-backend` (both :latest and :sha-xxxxx)
+2. Push to ECR `terra-vigil-backend` (both :latest and :sha-xxxxx)
 3. SSM Run Command (or SSH) to dashboard EC2: pull new image, restart container
 4. Build frontend with `npm run build`
 5. Sync frontend build to S3 (`aws s3 sync`)

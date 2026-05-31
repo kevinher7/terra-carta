@@ -3,13 +3,13 @@
 **The single source of truth for plans and cross-repo contracts** across the
 three repos of the camera-trap failure-analysis project:
 
-- **`cv-dashboard`** — the failure-analysis dashboard (consumer).
+- **`terra-vigil`** — the failure-analysis dashboard (consumer).
 - **`terra-incognita`** — the MLflow training + serving pipeline (producer).
 - the **infra / Terraform** repo — the AWS infrastructure.
 
 Plans are plain markdown in git: greppable, diffable, commit-pinnable. There is
 no Notion or auth-gated store. This repo replaces the old workflow of authoring
-plans in `cv-dashboard/.plans/` and hand-copying them into the other repos.
+plans in `terra-vigil/.plans/` and hand-copying them into the other repos.
 
 ## Two content types
 
@@ -21,7 +21,7 @@ plans in `cv-dashboard/.plans/` and hand-copying them into the other repos.
   - [`bbox-format.md`](contracts/bbox-format.md) — `xyxy` end-to-end bounding boxes.
   - [`mlflow-topology.md`](contracts/mlflow-topology.md) — MLflow placement, backend store, serving.
 - **`<repo>/`** — **implementation plans local to one repo:**
-  - [`dashboard/`](dashboard/) — `cv-dashboard` design.
+  - [`dashboard/`](dashboard/) — `terra-vigil` design.
   - [`training/`](training/) — `terra-incognita` context + plan.
   - [`infra/`](infra/) — infra/Terraform context + actionable deltas.
 

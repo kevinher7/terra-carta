@@ -205,7 +205,7 @@ OpenAPI spec, generate typed TypeScript client for the frontend.
 ## 11. Repository Structure
 
 ```
-cv-dashboard/
+terra-vigil/
 |-- CLAUDE.md
 |-- .plans/                 # read-only mirror of the cv-plans repo (git subtree)
 |-- backend/
