@@ -1,4 +1,4 @@
-# cv-plans
+# terra-carta
 
 **The single source of truth for plans and cross-repo contracts** across the
 three repos of the camera-trap failure-analysis project:
@@ -37,10 +37,10 @@ mirror** via `git subtree`:
 
 ```bash
 # one-time, run inside each consuming repo
-git subtree add --prefix=.plans https://github.com/kevinher7/cv-plans main --squash
+git subtree add --prefix=.plans https://github.com/kevinher7/terra-carta main --squash
 
 # to refresh later
-git subtree pull --prefix=.plans https://github.com/kevinher7/cv-plans main --squash
+git subtree pull --prefix=.plans https://github.com/kevinher7/terra-carta main --squash
 ```
 
 ## Authoring rule
