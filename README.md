@@ -22,6 +22,9 @@ plans in `terra-vigil/.plans/` and hand-copying them into the other repos.
   - [`model-registry.md`](contracts/model-registry.md) — alias-based model promotion.
   - [`bbox-format.md`](contracts/bbox-format.md) — `xyxy` end-to-end bounding boxes.
   - [`mlflow-topology.md`](contracts/mlflow-topology.md) — MLflow placement, backend store, serving.
+  - [`observability.md`](contracts/observability.md) — wide-event/OTel telemetry,
+    trace propagation, and sinks (local vs deployed SigNoz). Its machine-readable
+    field registry is [`observability.attributes.yaml`](contracts/observability.attributes.yaml).
 - **`<repo>/`** — **implementation plans local to one repo:**
   - [`dashboard/`](dashboard/) — `terra-vigil` design.
   - [`training/`](training/) — `terra-incognita` context + plan.
